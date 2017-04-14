@@ -1,10 +1,13 @@
-REATE INDEX student_index ON Student (id, name);
 
-CREATE INDEX transcript_index ON Transcript (studId, crsCode);
 
-CREATE INDEX teaching_index ON Teaching (crsCode, profId);
 
-CREATE INDEX professor_index ON professor (id, name, deptId);
+CREATE INDEX student_index ON student (stud_id, stud_name);
+
+CREATE INDEX transcript_index ON transcript (stud_id, crs_code);
+
+CREATE INDEX teaching_index ON teaching (crs_code, prof_id);
+
+CREATE INDEX professor_index ON professor (id, name, dept_id);
 
 
 
@@ -12,9 +15,9 @@ CREATE INDEX professor_index ON professor (id, name, deptId);
 
 
 
-SELECT Student.name
-FROM Student
-WHERE Student.id=912325;
+SELECT student.stud_name
+FROM student
+WHERE student.stud_id=912325;
 
 
 
@@ -22,9 +25,9 @@ WHERE Student.id=912325;
 
 
 
-Select Student.name
-from Student
-where Student.id >=3000 and Student.id <= 9000;
+Select student.stud_name
+from student
+where student.stud_id >=3000 and student.stud_id <= 9000;
 
 
 
@@ -32,9 +35,9 @@ where Student.id >=3000 and Student.id <= 9000;
 
 
 
-Select Student.name
-from Student, Transcript
-Where Student.id=Transcript.StudId AND Transcript.crsCode='crs148793';
+Select student.stud_name
+from student, transcript
+Where student.stud_id=transcript.stud_id AND transcript.crs_code='148793';
 
 
 
@@ -42,12 +45,12 @@ Where Student.id=Transcript.StudId AND Transcript.crsCode='crs148793';
 
 
 
-Select Student.name
-from Student, Transcript, Teaching, Professor
-where Transcript.crsCode= Teaching.crsCode 
-AND Student.id= Transcript.studId
-AND Teaching.profID= Professor.ID
-AND Professor.name= 'name489302';
+Select student.stud_name
+from student, transcript, teaching, professor
+where transcript.crs_code= teaching.crs_code 
+AND student.stud_id= transcript.stud_id
+AND teaching.prof_id= professor.id
+AND professor.name= 'name489302';
 
 
 
@@ -55,11 +58,11 @@ AND Professor.name= 'name489302';
 
 
 
-Select Student.name
-from Student, Transcript, Course
-where Transcript.crsCode= Course.crsCode
-and Student.id = Transcript.studId 
-and Course.deptId = '6' and Course.deptId <> '7' ;
+Select student.stud_name
+from student, transcript, course
+where transcript.crs_code= course.crs_code
+and student.stud_id = transcript.stud_id 
+and course.dept_id = '6' and course.dept_id <> '7' ;
 
 
 
@@ -67,8 +70,8 @@ and Course.deptId = '6' and Course.deptId <> '7' ;
 
 
 
-Select Student.name
-from Student, Transcript, Course
-where Transcript.studId = Student.id 
-AND ALL Transcript.crsCode=Course.crsCode 
-AND Course.deptId='dept873573';
+Select student.stud_name
+from student, transcript, course
+where transcript.stud_id = student.stud_id 
+AND transcript.crs_code=course.crs_code 
+AND course.dept_id='873573';
