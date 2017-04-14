@@ -41,9 +41,10 @@ WHERE S.id = Tr.studId && Tr.crsCode = Te.crsCode && Te.profId = P.id && P.deptI
 CREATE INDEX student_name_index ON Student (name);
 
 SELECT S.name
-FROM Student AS S JOIN Transcript AS Tr JOIN Teaching AS Te JOIN Professor P
+FROM Student S JOIN Transcript Tr FORCE INDEX (transcript_id_index)
+JOIN Teaching Te JOIN Professor P
 WHERE S.id = Tr.studId && Tr.crsCode = Te.crsCode && Te.profId = P.id
-GROUP BY S.name, S.id
+GROUP BY S.id, S.name
 HAVING COUNT(*) = (SELECT COUNT(*)
     FROM Professor AS P JOIN Teaching AS T
     WHERE P.id = T.profId && P.deptId = 'dept873573');
