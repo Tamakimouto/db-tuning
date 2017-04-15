@@ -1,0 +1,16 @@
+Project 4 Group Leader Report
+Emily Jackson
+
+Group members: Emily Jackson (leader), Kathryn Soll, Anthony Zheng, Jacob Shaw
+Group: Heapsters
+
+Project 4 was completed using MySQL Workbench and pgAdmin 4. 
+We divided the responsibilities into MySQL queries and Postgres queries. 
+Emily and Kathryn worked on Postgres, while Anthony and Jacob worked on MySQL.
+
+Each of the members contributed and worked together very well.
+
+
+Project 4 Schedule of meetings:
+4/13/2017: 6:30 PM – 11:00 PM
+All other communication was completed via GroupMe and GitHub.
